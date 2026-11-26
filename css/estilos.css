@@ -1,0 +1,37 @@
+[hidden] { 
+  display: none !important;
+}
+
+.error { 
+  color: #b3261e; 
+  font-size: 0.9rem;
+  margin: 0.25rem 0 0; 
+}  
+
+[aria-invalid="true"] { 
+  border: 2px solid #b3261e; 
+}  
+
+.contador {
+  color: #555; 
+  font-size: 0.85rem; 
+  margin: 0.25rem 0 0; 
+}  
+
+.resumen-errores {   
+  border: 2px solid #b3261e;   
+  border-radius: 8px;   
+  padding: 1rem;   
+  margin-bottom: 1.5rem; 
+} 
+
+.resumen-errores h2 { 
+  font-size: 1.1rem; 
+  margin: 0 0 0.5rem; 
+}  
+
+.confirmacion {   
+  background: #e7f4ea;   
+  border: 2px solid #1e7a3a;   
+  border-radius: 8px;   padding: 1rem; 
+}
