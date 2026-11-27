@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UD4. Test usabilidad y accesibilidad</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <div class="principal">
+        <header class="cabecera">
+            <h1>UD4. Test usabilidad y accesibilidad</h1>
+        </header>
+
+        <main class="cuerpo">
+            <form action="" class="formulario">
+                <fieldset> 
+                    <legend>Prioridad *</legend> 
+                    
+                    <div aria-describedby="Nombre y apellidos del usuario">
+                        <label for="nombre-apellidos"></label>
+                        <input type="text" id="nombre-apellidos" required>
+                    </div>
+                    <div aria-describedby="Niveles de prioridad de la incidencia">
+                        <input type="radio" id="prio-baja" name="prioridad" value="baja" required> 
+                        <label for="prio-baja">Baja</label> 
+                        <input type="radio" id="prio-media" name="prioridad" value="media"> 
+                        <label for="prio-media">Media</label> 
+                        <input type="radio" id="prio-alta" name="prioridad" value="alta">  
+                        <label for="prio-alta">Alta</label>
+                    </div>
+                </fieldset>
+            </form>
+        </main>
+
+        <footer>
+            <p>Desarrollado por Alba</p>
+        </footer>
+    </div>
+    
+
+    <script src="js/formulario.js"></script>
+</body>
+</html>
