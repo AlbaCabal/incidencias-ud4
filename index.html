@@ -1,51 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UD4. Test usabilidad y accesibilidad</title>
+    <meta name="description" content="Formulario para registrar incidencias del centro educativo.">
+    <title>Registro de incidencias | UD4</title>
     <link rel="stylesheet" href="css/estilos.css">
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "zk6m8h7akr");
-    </script>
+    <script src="js/formulario.js" defer></script>
 </head>
 <body>
     <div class="principal">
+
         <header class="cabecera">
-            <h1>UD4. Test usabilidad y accesibilidad</h1>
+            <h1>Registro de incidencias</h1>
+            <p>Formulario para comunicar averías y problemas del centro.</p>
         </header>
 
         <main class="cuerpo">
-            <form action="" class="formulario">
-                <fieldset> 
-                    <legend>Prioridad *</legend> 
-                    
-                    <div aria-describedby="Nombre y apellidos del usuario">
-                        <label for="nombre-apellidos"></label>
-                        <input type="text" id="nombre-apellidos" required>
-                    </div>
-                    <div aria-describedby="Niveles de prioridad de la incidencia">
-                        <input type="radio" id="prio-baja" name="prioridad" value="baja" required> 
-                        <label for="prio-baja">Baja</label> 
-                        <input type="radio" id="prio-media" name="prioridad" value="media"> 
-                        <label for="prio-media">Media</label> 
-                        <input type="radio" id="prio-alta" name="prioridad" value="alta">  
-                        <label for="prio-alta">Alta</label>
+
+            <form action="" method="post" id="form-incidencia" class="formulario">
+
+                <p class="nota-obligatorios">Los campos marcados con (*) son obligatorios.</p>
+
+                <div class="campo">
+                    <label for="nombre">Nombre y apellidos *</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+
+                <div class="campo">
+                    <label for="email">Correo electrónico *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="campo">
+                    <label for="ubicacion">Ubicación (aula o espacio) *</label>
+                    <select id="ubicacion" name="ubicacion" required>
+                        <option value="">Elige un aula o espacio…</option>
+                        <option value="aula-214">Aula 2.14</option>
+                        <option value="aula-215">Aula 2.15</option>
+                        <option value="informatica">Aula de informática</option>
+                        <option value="biblioteca">Biblioteca</option>
+                        <option value="cafeteria">Cafetería</option>
+                        <option value="pasillo">Pasillos</option>
+                        <option value="otros">Otros espacios</option>
+                    </select>
+                </div>
+
+                <fieldset>
+                    <legend>Tipo de incidencia *</legend>
+
+                    <div class="opciones">
+                        <div class="opcion">
+                            <input type="radio" id="tipo-hardware" name="tipo" value="hardware" required>
+                            <label for="tipo-hardware">Hardware</label>
+                        </div>
+
+                        <div class="opcion">
+                            <input type="radio" id="tipo-software" name="tipo" value="software">
+                            <label for="tipo-software">Software</label>
+                        </div>
+
+                        <div class="opcion">
+                            <input type="radio" id="tipo-red" name="tipo" value="red">
+                            <label for="tipo-red">Red</label>
+                        </div>
+
+                        <div class="opcion">
+                            <input type="radio" id="tipo-mobiliario" name="tipo" value="mobiliario">
+                            <label for="tipo-mobiliario">Mobiliario</label>
+                        </div>
+
+                        <div class="opcion">
+                            <input type="radio" id="tipo-otro" name="tipo" value="otro">
+                            <label for="tipo-otro">Otro</label>
+                        </div>
                     </div>
                 </fieldset>
+
+                <div class="campo">
+                    <label for="inventario">Nº de inventario del equipo</label>
+                    <input type="text" id="inventario" name="inventario">
+                </div>
+
+                <fieldset>
+                    <legend>Prioridad *</legend>
+
+                    <div class="opciones">
+                        <div class="opcion">
+                            <input type="radio" id="prio-baja" name="prioridad" value="baja" required>
+                            <label for="prio-baja">Baja</label>
+                        </div>
+
+                        <div class="opcion">
+                            <input type="radio" id="prio-media" name="prioridad" value="media">
+                            <label for="prio-media">Media</label>
+                        </div>
+
+                        <div class="opcion">
+                            <input type="radio" id="prio-alta" name="prioridad" value="alta">
+                            <label for="prio-alta">Alta</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="campo">
+                    <label for="fecha">Fecha en que se detectó *</label>
+                    <input type="date" id="fecha" name="fecha" required>
+                </div>
+
+                <div class="campo">
+                    <label for="descripcion">Descripción de la incidencia *</label>
+                    <textarea id="descripcion" name="descripcion" rows="5"
+                        minlength="20" required
+                        placeholder="Describe qué ocurre y qué problema has detectado..."></textarea>
+                </div>
+
+                <div class="botones">
+                    <button type="submit" class="btn-enviar">Enviar incidencia</button>
+                    <button type="reset" class="btn-limpiar">Limpiar formulario</button>
+                </div>
+
             </form>
+
         </main>
 
-        <footer>
-            <p>Desarrollado por Alba</p>
+        <footer class="pie">
+            <p>Desarrollado por Alba | UD4 - Test de usabilidad y accesibilidad</p>
         </footer>
-    </div>
-    
 
-    <script src="js/formulario.js"></script>
+    </div>
 </body>
 </html>
